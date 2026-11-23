@@ -1,0 +1,1 @@
+{"eta":"KernelDef.natFactorial","etaraw":"KernelDef.natFactorial","name":"KernelDefTest.MathlibForms.fact","raw":"(fun Nat => (KernelDef.natFactorial #0))","type":"(pi Nat => Nat)","value":"(fun Nat => (KernelDef.natFactorial #0))"}

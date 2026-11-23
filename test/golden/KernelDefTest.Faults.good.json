@@ -1,0 +1,1 @@
+{"eta":"(fun Nat => (Nat.add (KernelDefTest.Faults.hand #0) 1))","etaraw":"(fun Nat => (Nat.add (KernelDefTest.Faults.hand #0) 1))","name":"KernelDefTest.Faults.good","raw":"(fun Nat => (Nat.add (KernelDefTest.Faults.hand #0) 1))","type":"(pi Nat => Nat)","value":"(fun Nat => (Nat.add (KernelDefTest.Faults.hand #0) 1))"}

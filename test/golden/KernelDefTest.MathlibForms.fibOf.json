@@ -1,0 +1,1 @@
+{"eta":"(fun Nat => (KernelDef.natFibAux #0 0 1))","etaraw":"(fun Nat => (KernelDef.natFibAux #0 0 1))","name":"KernelDefTest.MathlibForms.fibOf","raw":"(fun Nat => (KernelDef.natFibAux #0 0 1))","type":"(pi Nat => Nat)","value":"(fun Nat => (KernelDef.natFibAux #0 0 1))"}

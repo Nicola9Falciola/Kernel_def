@@ -1,0 +1,1 @@
+{"eta":"Int.emod_k","etaraw":"Int.emod_k","name":"KernelDefTest.IntForms.imod","raw":"(fun Int => (fun Int => (Int.emod_k #1 #0)))","type":"(pi Int => (pi Int => Int))","value":"(fun Int => (fun Int => (Int.emod_k #1 #0)))"}

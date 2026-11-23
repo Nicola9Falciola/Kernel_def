@@ -1,0 +1,1 @@
+{"eta":"Int.ediv_k","etaraw":"Int.ediv_k","name":"KernelDefTest.IntForms.idiv","raw":"(fun Int => (fun Int => (Int.ediv_k #1 #0)))","type":"(pi Int => (pi Int => Int))","value":"(fun Int => (fun Int => (Int.ediv_k #1 #0)))"}

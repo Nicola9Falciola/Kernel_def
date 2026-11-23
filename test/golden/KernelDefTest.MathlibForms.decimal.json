@@ -1,0 +1,1 @@
+{"eta":"(KernelDef.natDigits 10)","etaraw":"(KernelDef.natDigits 10)","name":"KernelDefTest.MathlibForms.decimal","raw":"(fun Nat => (KernelDef.natDigits 10 #0))","type":"(pi Nat => (List.{0} Nat))","value":"(fun Nat => (KernelDef.natDigits 10 #0))"}

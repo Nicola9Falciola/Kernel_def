@@ -1,0 +1,1 @@
+{"eta":"Int.sub_k","etaraw":"Int.sub_k","name":"KernelDefTest.IntForms.isub","raw":"(fun Int => (fun Int => (Int.sub_k #1 #0)))","type":"(pi Int => (pi Int => Int))","value":"(fun Int => (fun Int => (Int.sub_k #1 #0)))"}

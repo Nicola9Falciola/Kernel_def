@@ -1,0 +1,1 @@
+{"eta":"KernelDef.natPrime","etaraw":"KernelDef.natPrime","name":"KernelDefTest.MathlibForms.isPrime","raw":"(fun Nat => (KernelDef.natPrime #0))","type":"(pi Nat => Bool)","value":"(fun Nat => (KernelDef.natPrime #0))"}

@@ -1,0 +1,1 @@
+{"eta":"KernelDef.natLog2","etaraw":"KernelDef.natLog2","name":"KernelDefTest.NatForms.lg","raw":"(fun Nat => (KernelDef.natLog2 #0))","type":"(pi Nat => Nat)","value":"(fun Nat => (KernelDef.natLog2 #0))"}

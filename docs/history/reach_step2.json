@@ -1,0 +1,303 @@
+{
+ "Cert.Acceptance.accVP": [],
+ "Cert.Acceptance.accWP": [],
+ "Cert.Acceptance.acc\u03a6TP": [],
+ "Cert.Acceptance.accVM": [],
+ "Cert.Acceptance.accWM": [],
+ "Cert.Acceptance.acc\u03a6TM": [],
+ "Cert.Acceptance.accYB": [],
+ "Cert.Acceptance.accSelB": [],
+ "Cert.Acceptance.accColT": [],
+ "Cert.Acceptance.accPosT": [],
+ "Cert.Acceptance.accPhi": [],
+ "Cert.Acceptance.accCol": [],
+ "Cert.Model.cuspListOk": [
+  "Weight2.Level23.Data",
+  "Weight2.Level39.Data",
+  "Weight2.Level997.Data",
+  "Weight4.Level37.Data",
+  "Weight6.Level37.Data"
+ ],
+ "Compute.radixAt": [
+  "Weight2.Level23.Data",
+  "Weight2.Level23.Hecke",
+  "Weight2.Level39.Data",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level997.Data",
+  "Weight2.Level997.Hecke",
+  "Weight4.Level37.Data",
+  "Weight4.Level37.Hecke",
+  "Weight6.Level37.Data",
+  "Weight6.Level37.Hecke"
+ ],
+ "Compute.tabSlot": [
+  "Weight2.Level23.Hecke",
+  "Weight2.Level997.Hecke"
+ ],
+ "Compute.tabKey": [
+  "Weight2.Level23.Hecke",
+  "Weight2.Level997.Hecke"
+ ],
+ "Compute.Pack.wP": [],
+ "Compute.Pack.wQ": [],
+ "Compute.Pack.dropN": [
+  "Weight2.Level23.Hecke",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level997.Hecke"
+ ],
+ "Compute.Pack.sumSlH": [
+  "Weight2.Level23.Hecke",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level997.Hecke"
+ ],
+ "Compute.Pack.allFitH": [
+  "Weight2.Level23.Hecke",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level997.Hecke"
+ ],
+ "Compute.Pack.innerH": [
+  "Weight2.Level23.Hecke",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level997.Hecke"
+ ],
+ "Compute.Pack.wPH": [
+  "Weight2.Level23.Hecke",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level997.Hecke"
+ ],
+ "Compute.Pack.wQH": [
+  "Weight2.Level23.Hecke",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level997.Hecke"
+ ],
+ "Compute.Pack.cmpH": [
+  "Weight2.Level23.Hecke",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level997.Hecke"
+ ],
+ "Compute.Pack.checkPkH": [
+  "Weight2.Level23.Hecke",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level997.Hecke"
+ ],
+ "Compute.Pack.oPH": [
+  "Weight2.Level23.Hecke",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level997.Hecke"
+ ],
+ "Compute.Pack.oQH": [
+  "Weight2.Level23.Hecke",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level997.Hecke"
+ ],
+ "Compute.Pack.checkOneH": [
+  "Weight2.Level23.Hecke",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level997.Hecke"
+ ],
+ "Compute.Pack.bdWQ": [
+  "Weight2.Level23.Basis",
+  "Weight2.Level39.Basis",
+  "Weight2.Level997.Basis"
+ ],
+ "Compute.Pack.cuspCheckSQ": [
+  "Weight2.Level23.Basis",
+  "Weight2.Level39.Basis",
+  "Weight2.Level997.Basis"
+ ],
+ "Compute.Pack.relKillsQ": [],
+ "Compute.Pack.slotWQ": [],
+ "Compute.Pack.rowsDualQ": [],
+ "Compute.Pack.relKillsH": [
+  "Weight2.Level23.Basis",
+  "Weight2.Level39.Basis",
+  "Weight2.Level997.Basis"
+ ],
+ "Compute.Pack.slotWH": [
+  "Weight2.Level23.Basis",
+  "Weight2.Level39.Basis",
+  "Weight2.Level997.Basis"
+ ],
+ "Compute.Pack.rowsDualH": [
+  "Weight2.Level23.Basis",
+  "Weight2.Level39.Basis",
+  "Weight2.Level997.Basis"
+ ],
+ "Compute.Pack.dsOk": [
+  "Weight2.Level23.Basis",
+  "Weight2.Level39.Basis",
+  "Weight2.Level997.Basis",
+  "Weight4.Level37.Basis",
+  "Weight6.Level37.Basis"
+ ],
+ "Compute.Pack.checkPk": [
+  "Weight4.Level37.Hecke",
+  "Weight6.Level37.Hecke"
+ ],
+ "Compute.Pack.rowModN": [
+  "Weight2.Level23.Hecke",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level997.Hecke",
+  "Weight4.Level37.Hecke",
+  "Weight6.Level37.Hecke"
+ ],
+ "Compute.Pack.heckeRowsOn": [
+  "Weight2.Level23.Hecke",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level997.Hecke"
+ ],
+ "Compute.Pack.heckeRowsOnW": [
+  "Weight4.Level37.Hecke",
+  "Weight6.Level37.Hecke"
+ ],
+ "Compute.Pack.rankBCheckS": [
+  "Weight2.Level23.Basis",
+  "Weight2.Level39.Basis",
+  "Weight2.Level997.Basis"
+ ],
+ "Compute.Pack.dualCheckW": [
+  "Weight4.Level37.Basis",
+  "Weight6.Level37.Basis"
+ ],
+ "Compute.Pack.rankCheckW": [
+  "Weight4.Level37.Basis",
+  "Weight6.Level37.Basis"
+ ],
+ "Compute.Pack.crossEqNat": [
+  "Weight2.Level23.Data",
+  "Weight2.Level39.Data",
+  "Weight2.Level997.Data",
+  "Weight4.Level37.Data",
+  "Weight6.Level37.Data"
+ ],
+ "Compute.Pack.ptC": [
+  "Weight2.Level23.Data",
+  "Weight2.Level23.Hecke",
+  "Weight2.Level23.QExp",
+  "Weight2.Level39.Data",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level39.QExp",
+  "Weight2.Level997.Data",
+  "Weight2.Level997.Hecke",
+  "Weight2.Level997.Newforms",
+  "Weight2.Level997.QExp",
+  "Weight4.Level37.Data",
+  "Weight4.Level37.Hecke",
+  "Weight4.Level37.QExp",
+  "Weight6.Level37.Data",
+  "Weight6.Level37.Hecke",
+  "Weight6.Level37.QExp"
+ ],
+ "Compute.Pack.ptD": [
+  "Weight2.Level23.Data",
+  "Weight2.Level23.Hecke",
+  "Weight2.Level23.QExp",
+  "Weight2.Level39.Data",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level39.QExp",
+  "Weight2.Level997.Data",
+  "Weight2.Level997.Hecke",
+  "Weight2.Level997.Newforms",
+  "Weight2.Level997.QExp",
+  "Weight4.Level37.Data",
+  "Weight4.Level37.Hecke",
+  "Weight4.Level37.QExp",
+  "Weight6.Level37.Data",
+  "Weight6.Level37.Hecke",
+  "Weight6.Level37.QExp"
+ ],
+ "Compute.Pack.rowPtOk": [
+  "Weight2.Level23.Data",
+  "Weight2.Level39.Data",
+  "Weight2.Level997.Data",
+  "Weight4.Level37.Data",
+  "Weight6.Level37.Data"
+ ],
+ "Compute.Pack.qdigits": [
+  "Weight2.Level23.Hecke",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level997.Hecke"
+ ],
+ "Compute.Pack.qrow": [
+  "Weight2.Level23.Hecke",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level997.Hecke"
+ ],
+ "Compute.Pack.qsteps": [
+  "Weight2.Level23.Hecke",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level997.Hecke"
+ ],
+ "Compute.Pack.qlen": [
+  "Weight2.Level23.Hecke",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level997.Hecke"
+ ],
+ "Compute.Pack.onesD": [
+  "Weight2.Level23.Basis",
+  "Weight2.Level39.Basis",
+  "Weight2.Level997.Basis"
+ ],
+ "Compute.Pack.swarW": [
+  "Weight2.Level23.Basis",
+  "Weight2.Level39.Basis",
+  "Weight2.Level997.Basis"
+ ],
+ "Compute.Pack.dualStackQ": [],
+ "Compute.Pack.dualStackH": [
+  "Weight2.Level23.Basis",
+  "Weight2.Level39.Basis",
+  "Weight2.Level997.Basis"
+ ],
+ "Compute.Pack.tgtWQ": [
+  "Weight2.Level23.Basis",
+  "Weight2.Level39.Basis",
+  "Weight2.Level997.Basis"
+ ],
+ "Compute.Pack.blkIdx": [
+  "Weight4.Level37.Basis",
+  "Weight6.Level37.Basis"
+ ],
+ "Compute.PackedColumn.stepLevelsQ": [
+  "Weight2.Level23.Hecke",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level997.Hecke"
+ ],
+ "Compute.PackedColumn.eqNatsQ": [
+  "Weight2.Level23.Hecke",
+  "Weight2.Level39.Hecke",
+  "Weight2.Level997.Hecke"
+ ],
+ "Compute.PackedDense.dotH": [
+  "Weight2.Level23.Newforms",
+  "Weight2.Level23.QExp",
+  "Weight2.Level39.QExp",
+  "Weight2.Level997.Newforms",
+  "Weight2.Level997.QExp"
+ ],
+ "Compute.PackedDense.slotSumH": [
+  "Weight2.Level23.Newforms",
+  "Weight2.Level23.QExp",
+  "Weight2.Level39.QExp",
+  "Weight2.Level997.Newforms",
+  "Weight2.Level997.QExp"
+ ],
+ "Compute.PackedDense.rowEq": [
+  "Weight2.Level23.Newforms",
+  "Weight2.Level23.QExp",
+  "Weight2.Level39.QExp",
+  "Weight2.Level997.Newforms",
+  "Weight2.Level997.QExp"
+ ],
+ "Compute.PackedDense.rowsEq": [
+  "Weight2.Level23.Newforms",
+  "Weight2.Level23.QExp",
+  "Weight2.Level39.QExp",
+  "Weight2.Level997.Newforms",
+  "Weight2.Level997.QExp"
+ ],
+ "Forms.Newform.compSlotsH": [],
+ "Forms.Newform.compRowsH": [],
+ "Forms.Newform.companionH": [],
+ "Forms.QExpBasis.Acceptance.accLT": []
+}

@@ -1,0 +1,1 @@
+{"eta":"(fun Nat => (Nat.add (Nat.mul (Nat.add (Nat.mul #0 3) 1) 3) 1))","etaraw":"(fun Nat => (Nat.add (Nat.mul (Nat.add (Nat.mul #0 3) 1) 3) 1))","name":"KernelDefTest.Shapes.useTwice","raw":"(fun Nat => (Nat.add (Nat.mul (Nat.add (Nat.mul #0 3) 1) 3) 1))","type":"(pi Nat => Nat)","value":"(fun Nat => (Nat.add (Nat.mul (Nat.add (Nat.mul #0 3) 1) 3) 1))"}

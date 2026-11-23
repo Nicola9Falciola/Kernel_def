@@ -1,0 +1,1 @@
+{"eta":"(KernelDef.listElemNat 7)","etaraw":"(KernelDef.listElemNat 7)","name":"KernelDefTest.LibraryForms.hasSevenC","raw":"(fun (List.{0} Nat) => (KernelDef.listElemNat 7 #0))","type":"(pi (List.{0} Nat) => Bool)","value":"(fun (List.{0} Nat) => (KernelDef.listElemNat 7 #0))"}

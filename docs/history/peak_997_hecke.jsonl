@@ -1,0 +1,36 @@
+{"date": "2026-11-21", "exp": "file", "N": 997, "file": "Hecke", "state": "the sources of 364e70a", "G": [70.61, 70.716, 70.636, 70.685, 70.715, 70.63], "peak": [0.841, 0.847, 0.842, 0.842, 0.839, 0.84]}
+{"date": "2026-11-21", "exp": "file", "N": 997, "file": "Hecke, without the kernel", "state": "the sources of 364e70a", "G": [38.242, 38.985, 38.839], "peak": [0.494, 0.494, 0.494]}
+{"date": "2026-11-21", "exp": "file", "N": 997, "file": "Basis", "state": "the sources of 364e70a", "G": [34.679, 34.694, 34.669, 34.652, 34.677], "peak": [0.541, 0.536, 0.541, 0.54, 0.541]}
+{"date": "2026-11-21", "exp": "file", "N": 997, "file": "Hecke", "state": "migrated", "G": [71.595, 70.641, 70.937, 71.908, 70.714], "peak": [0.863, 0.861, 0.858, 0.866, 0.861]}
+{"date": "2026-11-21", "exp": "file", "N": 997, "file": "Hecke, without the kernel", "state": "migrated", "G": [38.848, 38.286, 38.34], "peak": [0.494, 0.494, 0.494]}
+{"date": "2026-11-21", "exp": "file", "N": 997, "file": "Basis", "state": "migrated", "G": [36.15, 34.739, 34.725, 34.74, 34.732], "peak": [0.541, 0.543, 0.542, 0.539, 0.539]}
+{"date": "2026-11-21", "exp": "file", "N": 997, "file": "Hecke", "state": "migrated, pow2 and mask written by hand as at 364e70a", "G": [71.519, 70.707, 70.789, 72.069, 70.686], "peak": [0.86, 0.859, 0.859, 0.862, 0.858]}
+{"date": "2026-11-21", "exp": "file", "N": 997, "file": "Hecke", "state": "migrated, rdH written by hand as at 364e70a", "G": [70.64, 70.682, 70.681, 70.652, 70.632], "peak": [0.856, 0.857, 0.86, 0.863, 0.86]}
+{"date": "2026-11-21", "exp": "file", "N": 997, "file": "Hecke", "state": "the sources of 364e70a, the compiler imported in Prim.lean", "G": [71.1, 70.765, 70.783, 70.754, 70.769], "peak": [0.86, 0.858, 0.859, 0.858, 0.862]}
+{"date": "2026-11-21", "exp": "file", "N": 997, "file": "Hecke, without the kernel", "state": "the sources of 364e70a, the compiler imported in Prim.lean", "G": [39.365, 38.612], "peak": [0.494, 0.494]}
+{"date": "2026-11-21", "exp": "imports", "file": "the two imports of Prim.lean at 364e70a", "G": [11.363, 10.944, 11.108, 11.821], "peak": [0.207, 0.206, 0.206, 0.205]}
+{"date": "2026-11-21", "exp": "imports", "file": "the same with the compiler", "G": [13.496, 13.307, 13.311, 13.313], "peak": [0.25, 0.252, 0.25, 0.25]}
+{"date": "2026-11-21", "exp": "imports", "file": "the same with `import Lean`", "G": [13.258, 13.252, 13.255, 13.8], "peak": [0.248, 0.249, 0.248, 0.249]}
+{"date": "2026-11-21", "exp": "prefix", "N": 997, "state": "migrated", "set": "alone", "theorems": 0, "G": [39.261, 39.817, 38.421], "peak": [0.835, 0.834, 0.834]}
+{"date": "2026-11-21", "exp": "prefix", "N": 997, "state": "migrated", "set": "after the small ones", "theorems": 13, "G": [39.701, 40.564, 40.245], "peak": [0.839, 0.838, 0.841]}
+{"date": "2026-11-21", "exp": "prefix", "N": 997, "state": "migrated", "set": "after the full checks", "theorems": 5, "G": [52.093, 52.085, 52.065], "peak": [0.839, 0.837, 0.84]}
+{"date": "2026-11-21", "exp": "prefix", "N": 997, "state": "migrated", "set": "after hP11", "theorems": 1, "G": [42.117, 43.534, 42.109], "peak": [0.835, 0.838, 0.838]}
+{"date": "2026-11-21", "exp": "prefix", "N": 997, "state": "migrated", "set": "after hP2", "theorems": 1, "G": [41.015, 42.421, 41.024], "peak": [0.837, 0.839, 0.836]}
+{"date": "2026-11-21", "exp": "prefix", "N": 997, "state": "migrated", "set": "after all", "theorems": 18, "G": [53.23, 54.347, 53.524], "peak": [0.842, 0.839, 0.839]}
+{"date": "2026-11-21", "exp": "copies", "N": 997, "variant": "tree", "G": [43.563, 43.541, 43.593], "peak": [0.851, 0.851, 0.851], "state": "migrated", "run": "second, the bench module imported as KC.Swap"}
+{"date": "2026-11-21", "exp": "copies", "N": 997, "variant": "ctl", "G": [45.001, 43.633, 43.623], "peak": [0.859, 0.86, 0.859], "state": "migrated", "run": "second, the bench module imported as KC.Swap"}
+{"date": "2026-11-21", "exp": "copies", "N": 997, "variant": "old", "G": [45.012, 43.624, 43.624], "peak": [0.851, 0.851, 0.852], "state": "migrated", "run": "second, the bench module imported as KC.Swap"}
+{"date": "2026-11-21", "exp": "copies", "N": 997, "variant": "oldpow2", "G": [45.018, 43.61, 43.607], "peak": [0.833, 0.835, 0.834], "state": "migrated", "run": "second, the bench module imported as KC.Swap"}
+{"date": "2026-11-21", "exp": "copies", "N": 997, "variant": "oldmask", "G": [45.039, 44.432, 43.608], "peak": [0.834, 0.834, 0.833], "state": "migrated", "run": "second, the bench module imported as KC.Swap"}
+{"date": "2026-11-21", "exp": "cut", "N": 997, "cut": "before the projections", "lines": 222, "G": [53.269, 53.308, 53.321], "peak": [0.839, 0.84, 0.843], "state": "migrated"}
+{"date": "2026-11-21", "exp": "cut", "N": 997, "cut": "before hStepQ", "lines": 387, "G": [57.079, 55.66, 55.718], "peak": [0.838, 0.839, 0.84], "state": "migrated"}
+{"date": "2026-11-21", "exp": "cut", "N": 997, "cut": "before toMatrix_small", "lines": 431, "G": [61.219, 61.21, 61.261], "peak": [0.856, 0.859, 0.859], "state": "migrated"}
+{"date": "2026-11-21", "exp": "cut", "N": 997, "cut": "before bigPrimes", "lines": 477, "G": [62.796, 62.819, 62.809], "peak": [0.86, 0.861, 0.858], "state": "migrated"}
+{"date": "2026-11-21", "exp": "cut", "N": 997, "cut": "before colPrime", "lines": 485, "G": [64.071, 64.038, 64.057], "peak": [0.859, 0.861, 0.857], "state": "migrated"}
+{"date": "2026-11-21", "exp": "cut", "N": 997, "cut": "before steps", "lines": 625, "G": [68.339, 68.325, 68.352], "peak": [0.859, 0.86, 0.858], "state": "migrated"}
+{"date": "2026-11-21", "exp": "cut", "N": 997, "cut": "whole", "lines": 659, "G": [70.413, 70.364, 70.375], "peak": [0.859, 0.859, 0.86], "state": "migrated"}
+{"date": "2026-11-21", "exp": "copies", "N": 997, "variant": "tree", "G": [44.286, 43.464, 43.472], "peak": [0.834, 0.833, 0.834], "state": "migrated", "run": "first, the bench module imported as Swap"}
+{"date": "2026-11-21", "exp": "copies", "N": 997, "variant": "ctl", "G": [43.564, 43.56, 43.572], "peak": [0.859, 0.86, 0.857], "state": "migrated", "run": "first, the bench module imported as Swap"}
+{"date": "2026-11-21", "exp": "copies", "N": 997, "variant": "old", "G": [43.544, 43.569, 43.548], "peak": [0.858, 0.858, 0.86], "state": "migrated", "run": "first, the bench module imported as Swap"}
+{"date": "2026-11-21", "exp": "copies", "N": 997, "variant": "oldpow2", "G": [43.578, 43.556, 43.578], "peak": [0.861, 0.858, 0.859], "state": "migrated", "run": "first, the bench module imported as Swap"}
+{"date": "2026-11-21", "exp": "copies", "N": 997, "variant": "oldmask", "G": [43.565, 43.565, 43.559], "peak": [0.859, 0.856, 0.862], "state": "migrated", "run": "first, the bench module imported as Swap"}

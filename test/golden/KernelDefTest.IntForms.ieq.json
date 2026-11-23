@@ -1,0 +1,1 @@
+{"eta":"KernelDef.intBEq","etaraw":"KernelDef.intBEq","name":"KernelDefTest.IntForms.ieq","raw":"(fun Int => (fun Int => (KernelDef.intBEq #1 #0)))","type":"(pi Int => (pi Int => Bool))","value":"(fun Int => (fun Int => (KernelDef.intBEq #1 #0)))"}

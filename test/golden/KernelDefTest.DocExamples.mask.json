@@ -1,0 +1,1 @@
+{"eta":"(fun Nat => (Nat.sub (Nat.shiftLeft 1 #0) 1))","etaraw":"(fun Nat => (Nat.sub (Nat.shiftLeft 1 #0) 1))","name":"KernelDefTest.DocExamples.mask","raw":"(fun Nat => (Nat.sub (Nat.shiftLeft 1 #0) 1))","type":"(pi Nat => Nat)","value":"(fun Nat => (Nat.sub (Nat.shiftLeft 1 #0) 1))"}

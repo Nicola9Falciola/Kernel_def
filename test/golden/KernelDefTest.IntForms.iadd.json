@@ -1,0 +1,1 @@
+{"eta":"Int.add_k","etaraw":"Int.add_k","name":"KernelDefTest.IntForms.iadd","raw":"(fun Int => (fun Int => (Int.add_k #1 #0)))","type":"(pi Int => (pi Int => Int))","value":"(fun Int => (fun Int => (Int.add_k #1 #0)))"}

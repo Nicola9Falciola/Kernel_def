@@ -1,0 +1,1 @@
+{"eta":"(KernelDef.listGet?.{0} Nat)","etaraw":"(KernelDef.listGet?.{0} Nat)","name":"KernelDefTest.LibraryForms.getQ","raw":"(fun (List.{0} Nat) => (fun Nat => (KernelDef.listGet?.{0} Nat #1 #0)))","type":"(pi (List.{0} Nat) => (pi Nat => (Option.{0} Nat)))","value":"(fun (List.{0} Nat) => (fun Nat => (KernelDef.listGet?.{0} Nat #1 #0)))"}

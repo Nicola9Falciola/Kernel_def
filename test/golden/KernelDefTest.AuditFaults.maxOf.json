@@ -1,0 +1,1 @@
+{"eta":"(Max.max.{0} Bool Bool.instMax)","etaraw":"(Max.max.{0} Bool Bool.instMax)","name":"KernelDefTest.AuditFaults.maxOf","raw":"(fun Bool => (fun Bool => (Max.max.{0} Bool Bool.instMax #1 #0)))","type":"(pi Bool => (pi Bool => Bool))","value":"(fun Bool => (fun Bool => (Max.max.{0} Bool Bool.instMax #1 #0)))"}

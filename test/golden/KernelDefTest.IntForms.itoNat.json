@@ -1,0 +1,1 @@
+{"eta":"Int.toNat_k","etaraw":"Int.toNat_k","name":"KernelDefTest.IntForms.itoNat","raw":"(fun Int => (Int.toNat_k #0))","type":"(pi Int => Nat)","value":"(fun Int => (Int.toNat_k #0))"}

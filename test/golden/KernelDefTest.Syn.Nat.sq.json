@@ -1,0 +1,1 @@
+{"eta":"(fun Nat => (Nat.mul #0 #0))","etaraw":"(fun Nat => (Nat.mul #0 #0))","name":"KernelDefTest.Syn.Nat.sq","raw":"(fun Nat => (Nat.mul #0 #0))","type":"(pi Nat => Nat)","value":"(fun Nat => (Nat.mul #0 #0))"}

@@ -1,0 +1,1 @@
+{"eta":"KernelDef.listMaxNat?","etaraw":"KernelDef.listMaxNat?","name":"KernelDefTest.LibraryForms.maxOf?","raw":"(fun (List.{0} Nat) => (KernelDef.listMaxNat? #0))","type":"(pi (List.{0} Nat) => (Option.{0} Nat))","value":"(fun (List.{0} Nat) => (KernelDef.listMaxNat? #0))"}

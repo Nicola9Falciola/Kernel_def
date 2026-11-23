@@ -1,0 +1,1 @@
+{"eta":"KernelDef.natSqrt","etaraw":"KernelDef.natSqrt","name":"KernelDefTest.NatForms.isqrt","raw":"(fun Nat => (KernelDef.natSqrt #0))","type":"(pi Nat => Nat)","value":"(fun Nat => (KernelDef.natSqrt #0))"}

@@ -1,12 +1,22 @@
 name = "Kernel_def"
 version = "0.1.0"
 keywords = ["math"]
-defaultTargets = ["KernelDef"]
+license = "Apache-2.0"
+# `lake build` is the whole test suite: the compiler and its tests.
+defaultTargets = ["KernelDef", "KernelDefTest"]
+# Mathlib is a module-system package, and Lake warns at every import of it from a file without a
+# `module` header. The files here do not use the module system; this declares the mix deliberate
+# and silences those warnings (as in ModularSymbolsTau).
+allowNonModules = true
 
 [leanOptions]
 pp.unicode.fun = true # pretty-prints `fun a ↦ b`
 relaxedAutoImplicit = false
 weak.linter.mathlibStandardSet = true
+# Every file carries the Apache 2.0 copyright block, but Mathlib's `style.header` linter also
+# checks Mathlib's own layout after it (imports, then the module docstring, nothing between), which
+# this repository does not enforce.
+weak.linter.style.header = false
 maxSynthPendingDepth = 3
 
 [[require]]
@@ -14,5 +24,14 @@ name = "mathlib"
 scope = "leanprover-community"
 rev = "v4.37.0-rc1"
 
+# The compiler: `kernel_def`, `@[kernel_inline]`, `@[kernel_rule]`, `#kernel_audit`, and the kernel
+# forms of library functions. Globbed, so that `lake build KernelDef` also builds the optional
+# `KernelDef.MathlibForms`, which the root `KernelDef.lean` does not import.
 [[lean_lib]]
 name = "KernelDef"
+globs = ["KernelDef.+"]
+
+# The tests of the compiler: what it accepts, rejects and reports, the audit and the axioms.
+[[lean_lib]]
+name = "KernelDefTest"
+globs = ["KernelDefTest.+"]

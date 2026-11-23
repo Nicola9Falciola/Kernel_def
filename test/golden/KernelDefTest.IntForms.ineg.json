@@ -1,0 +1,1 @@
+{"eta":"Int.neg_k","etaraw":"Int.neg_k","name":"KernelDefTest.IntForms.ineg","raw":"(fun Int => (Int.neg_k #0))","type":"(pi Int => Int)","value":"(fun Int => (Int.neg_k #0))"}

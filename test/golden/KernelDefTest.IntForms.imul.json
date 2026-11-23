@@ -1,0 +1,1 @@
+{"eta":"Int.mul_k","etaraw":"Int.mul_k","name":"KernelDefTest.IntForms.imul","raw":"(fun Int => (fun Int => (Int.mul_k #1 #0)))","type":"(pi Int => (pi Int => Int))","value":"(fun Int => (fun Int => (Int.mul_k #1 #0)))"}

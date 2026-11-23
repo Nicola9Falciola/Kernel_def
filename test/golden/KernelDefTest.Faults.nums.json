@@ -1,0 +1,1 @@
+{"eta":"(fun Nat => (Nat.add (Nat.add (Nat.add #0 1) 1) (Nat.succ 0)))","etaraw":"(fun Nat => (Nat.add (Nat.add (Nat.add #0 1) 1) (Nat.succ 0)))","name":"KernelDefTest.Faults.nums","raw":"(fun Nat => (Nat.add (Nat.add (Nat.add #0 1) 1) (Nat.succ 0)))","type":"(pi Nat => Nat)","value":"(fun Nat => (Nat.add (Nat.add (Nat.add #0 1) 1) (Nat.succ 0)))"}

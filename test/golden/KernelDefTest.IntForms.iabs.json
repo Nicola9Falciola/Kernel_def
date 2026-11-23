@@ -1,0 +1,1 @@
+{"eta":"Int.natAbs_k","etaraw":"Int.natAbs_k","name":"KernelDefTest.IntForms.iabs","raw":"(fun Int => (Int.natAbs_k #0))","type":"(pi Int => Nat)","value":"(fun Int => (Int.natAbs_k #0))"}

@@ -1,0 +1,891 @@
+[
+ {
+  "file": "KernelDef/IntForms.lean",
+  "module": "KernelDef.IntForms",
+  "todo": false,
+  "name": "KernelDef.intBEq",
+  "line": 73
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listGetD",
+  "line": 71
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listHeadD",
+  "line": 87
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listTail",
+  "line": 96
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listReplicate",
+  "line": 105
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listRange'",
+  "line": 117
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listEraseIdx",
+  "line": 129
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listFilter",
+  "line": 141
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listAppend",
+  "line": 152
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listZip",
+  "line": 161
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listLength",
+  "line": 178
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listFoldl",
+  "line": 203
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listSumNat",
+  "line": 214
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listSum",
+  "line": 226
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listReverseAux",
+  "line": 237
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listTake",
+  "line": 252
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listDrop",
+  "line": 264
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listZipWith",
+  "line": 276
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listFlatten",
+  "line": 287
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listFlatMap",
+  "line": 298
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listGet?",
+  "line": 315
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listFind?",
+  "line": 342
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listElemNat",
+  "line": 353
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listElem",
+  "line": 357
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listCountNat",
+  "line": 384
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listLookupNat",
+  "line": 394
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listMaxNat?",
+  "line": 409
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.listBEqNat",
+  "line": 421
+ },
+ {
+  "file": "KernelDef/ListForms.lean",
+  "module": "KernelDef.ListForms",
+  "todo": false,
+  "name": "KernelDef.natChoose",
+  "line": 482
+ },
+ {
+  "file": "KernelDef/MathlibForms.lean",
+  "module": "KernelDef.MathlibForms",
+  "todo": false,
+  "name": "KernelDef.noDivFrom",
+  "line": 55
+ },
+ {
+  "file": "KernelDef/MathlibForms.lean",
+  "module": "KernelDef.MathlibForms",
+  "todo": false,
+  "name": "KernelDef.natPrime",
+  "line": 82
+ },
+ {
+  "file": "KernelDef/MathlibForms.lean",
+  "module": "KernelDef.MathlibForms",
+  "todo": false,
+  "name": "KernelDef.natFibAux",
+  "line": 100
+ },
+ {
+  "file": "KernelDef/MathlibForms.lean",
+  "module": "KernelDef.MathlibForms",
+  "todo": false,
+  "name": "KernelDef.natFactorial",
+  "line": 120
+ },
+ {
+  "file": "KernelDef/MathlibForms.lean",
+  "module": "KernelDef.MathlibForms",
+  "todo": false,
+  "name": "KernelDef.digitsFuel",
+  "line": 136
+ },
+ {
+  "file": "KernelDef/MathlibForms.lean",
+  "module": "KernelDef.MathlibForms",
+  "todo": false,
+  "name": "KernelDef.natDigits",
+  "line": 152
+ },
+ {
+  "file": "KernelDef/NatForms.lean",
+  "module": "KernelDef.NatForms",
+  "todo": false,
+  "name": "KernelDef.log2Desc",
+  "line": 57
+ },
+ {
+  "file": "KernelDef/NatForms.lean",
+  "module": "KernelDef.NatForms",
+  "todo": false,
+  "name": "KernelDef.log2Up",
+  "line": 63
+ },
+ {
+  "file": "KernelDef/NatForms.lean",
+  "module": "KernelDef.NatForms",
+  "todo": false,
+  "name": "KernelDef.natLog2",
+  "line": 68
+ },
+ {
+  "file": "KernelDef/NatForms.lean",
+  "module": "KernelDef.NatForms",
+  "todo": false,
+  "name": "KernelDef.sqrtIterFuel",
+  "line": 123
+ },
+ {
+  "file": "KernelDef/NatForms.lean",
+  "module": "KernelDef.NatForms",
+  "todo": false,
+  "name": "KernelDef.natSqrt",
+  "line": 142
+ },
+ {
+  "file": "KernelDef/NatForms.lean",
+  "module": "KernelDef.NatForms",
+  "todo": false,
+  "name": "KernelDef.natTestBit",
+  "line": 158
+ },
+ {
+  "file": "KernelDef/NatForms.lean",
+  "module": "KernelDef.NatForms",
+  "todo": false,
+  "name": "KernelDef.natAll",
+  "line": 184
+ },
+ {
+  "file": "KernelDefTest/Accepts.lean",
+  "module": "KernelDefTest.Accepts",
+  "todo": false,
+  "name": "KernelDefTest.Accepts.entries",
+  "line": 36
+ },
+ {
+  "file": "KernelDefTest/Accepts.lean",
+  "module": "KernelDefTest.Accepts",
+  "todo": false,
+  "name": "KernelDefTest.Accepts.entries'",
+  "line": 43
+ },
+ {
+  "file": "KernelDefTest/Accepts.lean",
+  "module": "KernelDefTest.Accepts",
+  "todo": false,
+  "name": "KernelDefTest.Accepts.steps",
+  "line": 66
+ },
+ {
+  "file": "KernelDefTest/Accepts.lean",
+  "module": "KernelDefTest.Accepts",
+  "todo": false,
+  "name": "KernelDefTest.Accepts.pairSum",
+  "line": 73
+ },
+ {
+  "file": "KernelDefTest/Accepts.lean",
+  "module": "KernelDefTest.Accepts",
+  "todo": false,
+  "name": "KernelDefTest.Accepts.tri",
+  "line": 79
+ },
+ {
+  "file": "KernelDefTest/Audit.lean",
+  "module": "KernelDefTest.Audit",
+  "todo": false,
+  "name": "KernelDefTest.AuditFaults.getOr",
+  "line": 52
+ },
+ {
+  "file": "KernelDefTest/Audit.lean",
+  "module": "KernelDefTest.Audit",
+  "todo": false,
+  "name": "KernelDefTest.AuditFaults.maxOf",
+  "line": 56
+ },
+ {
+  "file": "KernelDefTest/Audit.lean",
+  "module": "KernelDefTest.Audit",
+  "todo": false,
+  "name": "KernelDefTest.AuditFaults.viaWhere",
+  "line": 59
+ },
+ {
+  "file": "KernelDefTest/Audit.lean",
+  "module": "KernelDefTest.Audit",
+  "todo": false,
+  "name": "KernelDefTest.AuditFaults.pairInt",
+  "line": 64
+ },
+ {
+  "file": "KernelDefTest/DocExamples.lean",
+  "module": "KernelDefTest.DocExamples",
+  "todo": false,
+  "name": "KernelDefTest.DocExamples.sumSmall",
+  "line": 35
+ },
+ {
+  "file": "KernelDefTest/DocExamples.lean",
+  "module": "KernelDefTest.DocExamples",
+  "todo": false,
+  "name": "KernelDefTest.DocExamples.splitsOk",
+  "line": 102
+ },
+ {
+  "file": "KernelDefTest/DocExamples.lean",
+  "module": "KernelDefTest.DocExamples",
+  "todo": false,
+  "name": "KernelDefTest.DocExamples.mask",
+  "line": 119
+ },
+ {
+  "file": "KernelDefTest/DocExamples.lean",
+  "module": "KernelDefTest.DocExamples",
+  "todo": false,
+  "name": "KernelDefTest.DocExamples.field",
+  "line": 122
+ },
+ {
+  "file": "KernelDefTest/DocExamples.lean",
+  "module": "KernelDefTest.DocExamples",
+  "todo": false,
+  "name": "KernelDefTest.DocExamples.sumL",
+  "line": 145
+ },
+ {
+  "file": "KernelDefTest/DocExamples.lean",
+  "module": "KernelDefTest.DocExamples",
+  "todo": false,
+  "name": "KernelDefTest.DocExamples.scale",
+  "line": 190
+ },
+ {
+  "file": "KernelDefTest/Faults.lean",
+  "module": "KernelDefTest.Faults",
+  "todo": false,
+  "name": "KernelDefTest.Faults.good",
+  "line": 44
+ },
+ {
+  "file": "KernelDefTest/Faults.lean",
+  "module": "KernelDefTest.Faults",
+  "todo": false,
+  "name": "KernelDefTest.Faults.twice",
+  "line": 54
+ },
+ {
+  "file": "KernelDefTest/Faults.lean",
+  "module": "KernelDefTest.Faults",
+  "todo": false,
+  "name": "KernelDefTest.Faults.nums",
+  "line": 59
+ },
+ {
+  "file": "KernelDefTest/IntForms.lean",
+  "module": "KernelDefTest.IntForms",
+  "todo": false,
+  "name": "KernelDefTest.IntForms.iadd",
+  "line": 21
+ },
+ {
+  "file": "KernelDefTest/IntForms.lean",
+  "module": "KernelDefTest.IntForms",
+  "todo": false,
+  "name": "KernelDefTest.IntForms.isub",
+  "line": 23
+ },
+ {
+  "file": "KernelDefTest/IntForms.lean",
+  "module": "KernelDefTest.IntForms",
+  "todo": false,
+  "name": "KernelDefTest.IntForms.imul",
+  "line": 25
+ },
+ {
+  "file": "KernelDefTest/IntForms.lean",
+  "module": "KernelDefTest.IntForms",
+  "todo": false,
+  "name": "KernelDefTest.IntForms.ineg",
+  "line": 27
+ },
+ {
+  "file": "KernelDefTest/IntForms.lean",
+  "module": "KernelDefTest.IntForms",
+  "todo": false,
+  "name": "KernelDefTest.IntForms.iabs",
+  "line": 29
+ },
+ {
+  "file": "KernelDefTest/IntForms.lean",
+  "module": "KernelDefTest.IntForms",
+  "todo": false,
+  "name": "KernelDefTest.IntForms.imod",
+  "line": 31
+ },
+ {
+  "file": "KernelDefTest/IntForms.lean",
+  "module": "KernelDefTest.IntForms",
+  "todo": false,
+  "name": "KernelDefTest.IntForms.idiv",
+  "line": 33
+ },
+ {
+  "file": "KernelDefTest/IntForms.lean",
+  "module": "KernelDefTest.IntForms",
+  "todo": false,
+  "name": "KernelDefTest.IntForms.itoNat",
+  "line": 35
+ },
+ {
+  "file": "KernelDefTest/IntForms.lean",
+  "module": "KernelDefTest.IntForms",
+  "todo": false,
+  "name": "KernelDefTest.IntForms.ilt",
+  "line": 37
+ },
+ {
+  "file": "KernelDefTest/IntForms.lean",
+  "module": "KernelDefTest.IntForms",
+  "todo": false,
+  "name": "KernelDefTest.IntForms.ile",
+  "line": 46
+ },
+ {
+  "file": "KernelDefTest/IntForms.lean",
+  "module": "KernelDefTest.IntForms",
+  "todo": false,
+  "name": "KernelDefTest.IntForms.ieq",
+  "line": 48
+ },
+ {
+  "file": "KernelDefTest/IntForms.lean",
+  "module": "KernelDefTest.IntForms",
+  "todo": false,
+  "name": "KernelDefTest.IntForms.dot",
+  "line": 51
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.lenPlus",
+  "line": 25
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.sumFirst",
+  "line": 35
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.foldSum",
+  "line": 62
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.sumOf",
+  "line": 72
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.sumInt",
+  "line": 82
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.revHead",
+  "line": 85
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.takeDrop",
+  "line": 95
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.zipSum",
+  "line": 97
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.flat",
+  "line": 99
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.doubled",
+  "line": 101
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.getQ",
+  "line": 116
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.getOr7",
+  "line": 119
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.getBang",
+  "line": 129
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.firstBig",
+  "line": 138
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.hasSeven",
+  "line": 140
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.hasSevenC",
+  "line": 142
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.hasSevenM",
+  "line": 146
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.hasTrue",
+  "line": 156
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.sevens",
+  "line": 158
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.valueOf",
+  "line": 160
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.maxOf?",
+  "line": 162
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.sameList",
+  "line": 171
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.sameListB",
+  "line": 173
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.arrSum",
+  "line": 194
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.arrAt",
+  "line": 203
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.arrSize",
+  "line": 205
+ },
+ {
+  "file": "KernelDefTest/LibraryForms.lean",
+  "module": "KernelDefTest.LibraryForms",
+  "todo": false,
+  "name": "KernelDefTest.LibraryForms.optOr",
+  "line": 207
+ },
+ {
+  "file": "KernelDefTest/MathlibForms.lean",
+  "module": "KernelDefTest.MathlibForms",
+  "todo": false,
+  "name": "KernelDefTest.MathlibForms.isPrime",
+  "line": 21
+ },
+ {
+  "file": "KernelDefTest/MathlibForms.lean",
+  "module": "KernelDefTest.MathlibForms",
+  "todo": false,
+  "name": "KernelDefTest.MathlibForms.fibOf",
+  "line": 30
+ },
+ {
+  "file": "KernelDefTest/MathlibForms.lean",
+  "module": "KernelDefTest.MathlibForms",
+  "todo": false,
+  "name": "KernelDefTest.MathlibForms.fact",
+  "line": 32
+ },
+ {
+  "file": "KernelDefTest/MathlibForms.lean",
+  "module": "KernelDefTest.MathlibForms",
+  "todo": false,
+  "name": "KernelDefTest.MathlibForms.decimal",
+  "line": 34
+ },
+ {
+  "file": "KernelDefTest/MathlibForms.lean",
+  "module": "KernelDefTest.MathlibForms",
+  "todo": false,
+  "name": "KernelDefTest.MathlibForms.digitsIn",
+  "line": 43
+ },
+ {
+  "file": "KernelDefTest/NatForms.lean",
+  "module": "KernelDefTest.NatForms",
+  "todo": false,
+  "name": "KernelDefTest.NatForms.lg",
+  "line": 25
+ },
+ {
+  "file": "KernelDefTest/NatForms.lean",
+  "module": "KernelDefTest.NatForms",
+  "todo": false,
+  "name": "KernelDefTest.NatForms.isqrt",
+  "line": 34
+ },
+ {
+  "file": "KernelDefTest/NatForms.lean",
+  "module": "KernelDefTest.NatForms",
+  "todo": false,
+  "name": "KernelDefTest.NatForms.bit3",
+  "line": 43
+ },
+ {
+  "file": "KernelDefTest/NatForms.lean",
+  "module": "KernelDefTest.NatForms",
+  "todo": false,
+  "name": "KernelDefTest.NatForms.clamp",
+  "line": 46
+ },
+ {
+  "file": "KernelDefTest/NatForms.lean",
+  "module": "KernelDefTest.NatForms",
+  "todo": false,
+  "name": "KernelDefTest.NatForms.before",
+  "line": 55
+ },
+ {
+  "file": "KernelDefTest/NatForms.lean",
+  "module": "KernelDefTest.NatForms",
+  "todo": false,
+  "name": "KernelDefTest.NatForms.lcm12",
+  "line": 57
+ },
+ {
+  "file": "KernelDefTest/NatForms.lean",
+  "module": "KernelDefTest.NatForms",
+  "todo": false,
+  "name": "KernelDefTest.NatForms.noSquareAll",
+  "line": 59
+ },
+ {
+  "file": "KernelDefTest/NatForms.lean",
+  "module": "KernelDefTest.NatForms",
+  "todo": false,
+  "name": "KernelDefTest.NatForms.noSquareBelow",
+  "line": 62
+ },
+ {
+  "file": "KernelDefTest/Rejects.lean",
+  "module": "KernelDefTest.Rejects",
+  "todo": false,
+  "name": "KernelDefTest.Rejects.getOr",
+  "line": 53
+ },
+ {
+  "file": "KernelDefTest/Shapes.lean",
+  "module": "KernelDefTest.Shapes",
+  "todo": false,
+  "name": "KernelDefTest.Shapes.allZip",
+  "line": 26
+ },
+ {
+  "file": "KernelDefTest/Shapes.lean",
+  "module": "KernelDefTest.Shapes",
+  "todo": false,
+  "name": "KernelDefTest.Shapes.allIdx",
+  "line": 50
+ },
+ {
+  "file": "KernelDefTest/Shapes.lean",
+  "module": "KernelDefTest.Shapes",
+  "todo": false,
+  "name": "KernelDefTest.Shapes.allLt",
+  "line": 63
+ },
+ {
+  "file": "KernelDefTest/Shapes.lean",
+  "module": "KernelDefTest.Shapes",
+  "todo": false,
+  "name": "KernelDefTest.Shapes.tests",
+  "line": 75
+ },
+ {
+  "file": "KernelDefTest/Shapes.lean",
+  "module": "KernelDefTest.Shapes",
+  "todo": false,
+  "name": "KernelDefTest.Shapes.powAcc",
+  "line": 100
+ },
+ {
+  "file": "KernelDefTest/Shapes.lean",
+  "module": "KernelDefTest.Shapes",
+  "todo": false,
+  "name": "KernelDefTest.Shapes.sumTo",
+  "line": 112
+ },
+ {
+  "file": "KernelDefTest/Shapes.lean",
+  "module": "KernelDefTest.Shapes",
+  "todo": false,
+  "name": "KernelDefTest.Shapes.swapAdd",
+  "line": 124
+ },
+ {
+  "file": "KernelDefTest/Shapes.lean",
+  "module": "KernelDefTest.Shapes",
+  "todo": false,
+  "name": "KernelDefTest.Shapes.onTerm",
+  "line": 141
+ },
+ {
+  "file": "KernelDefTest/Shapes.lean",
+  "module": "KernelDefTest.Shapes",
+  "todo": false,
+  "name": "KernelDefTest.Shapes.useTwice",
+  "line": 167
+ },
+ {
+  "file": "KernelDefTest/Syntax.lean",
+  "module": "KernelDefTest.Syntax",
+  "todo": false,
+  "name": "KernelDefTest.Syn.packAll",
+  "line": 24
+ },
+ {
+  "file": "KernelDefTest/Syntax.lean",
+  "module": "KernelDefTest.Syntax",
+  "todo": false,
+  "name": "KernelDefTest.Syn.count",
+  "line": 41
+ },
+ {
+  "file": "KernelDefTest/Syntax.lean",
+  "module": "KernelDefTest.Syntax",
+  "todo": false,
+  "name": "KernelDefTest.Syn.hidden",
+  "line": 46
+ },
+ {
+  "file": "KernelDefTest/Syntax.lean",
+  "module": "KernelDefTest.Syntax",
+  "todo": false,
+  "name": "KernelDefTest.Syn.Nat.sq",
+  "line": 47
+ },
+ {
+  "file": "KernelDefTest/Syntax.lean",
+  "module": "KernelDefTest.Syntax",
+  "todo": false,
+  "name": "KernelDefTest.Syn.total",
+  "line": 59
+ }
+]

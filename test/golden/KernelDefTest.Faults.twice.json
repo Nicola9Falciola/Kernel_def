@@ -1,0 +1,1 @@
+{"eta":"(Nat.mul 2)","etaraw":"(Nat.mul 2)","name":"KernelDefTest.Faults.twice","raw":"(fun Nat => (Nat.mul 2 #0))","type":"(pi Nat => Nat)","value":"(fun Nat => (Nat.mul 2 #0))"}

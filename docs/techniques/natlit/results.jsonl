@@ -1,0 +1,30 @@
+{"exp": "data", "variant": "ofnat_def", "size": 256, "kernel_G": 0.0044, "kernel_s": -0.01, "elab_G": 1.9612, "elab_s": 0.13, "peak_GB": 0.083, "peak_nokernel_GB": 0.082, "src_bytes": 46015}
+{"exp": "data", "variant": "ofnat_nc", "size": 256, "kernel_G": 0.0421, "kernel_s": -0.02, "elab_G": 1.6808, "elab_s": 0.12, "peak_GB": 0.08, "peak_nokernel_GB": 0.08, "src_bytes": 46028}
+{"exp": "data", "variant": "natlit_def", "size": 256, "kernel_G": 0.0144, "kernel_s": 0.02, "elab_G": 1.0586, "elab_s": 0.08, "peak_GB": 0.081, "peak_nokernel_GB": 0.08, "src_bytes": 48064}
+{"exp": "data", "variant": "natlit_nc", "size": 256, "kernel_G": 0.0197, "kernel_s": 0.01, "elab_G": 0.8506, "elab_s": 0.08, "peak_GB": 0.078, "peak_nokernel_GB": 0.077, "src_bytes": 48077}
+{"exp": "data", "variant": "ofnat_def", "size": 1024, "kernel_G": 0.0906, "kernel_s": 0.01, "elab_G": 7.884, "elab_s": 0.34, "peak_GB": 0.11, "peak_nokernel_GB": 0.107, "src_bytes": 182316}
+{"exp": "data", "variant": "ofnat_nc", "size": 1024, "kernel_G": 0.1783, "kernel_s": 0.02, "elab_G": 6.7612, "elab_s": 0.29, "peak_GB": 0.099, "peak_nokernel_GB": 0.095, "src_bytes": 182329}
+{"exp": "data", "variant": "natlit_def", "size": 1024, "kernel_G": 0.1124, "kernel_s": 0.03, "elab_G": 4.2422, "elab_s": 0.2, "peak_GB": 0.098, "peak_nokernel_GB": 0.096, "src_bytes": 190509}
+{"exp": "data", "variant": "natlit_nc", "size": 1024, "kernel_G": 0.0815, "kernel_s": 0.01, "elab_G": 3.3644, "elab_s": 0.15, "peak_GB": 0.088, "peak_nokernel_GB": 0.084, "src_bytes": 190522}
+{"exp": "data", "variant": "ofnat_def", "size": 4096, "kernel_G": 0.4615, "kernel_s": 0.06, "elab_G": 32.7381, "elab_s": 1.44, "peak_GB": 0.216, "peak_nokernel_GB": 0.205, "src_bytes": 727799}
+{"exp": "data", "variant": "ofnat_nc", "size": 4096, "kernel_G": 0.5102, "kernel_s": 0.0, "elab_G": 27.466, "elab_s": 1.2, "peak_GB": 0.178, "peak_nokernel_GB": 0.161, "src_bytes": 727812}
+{"exp": "data", "variant": "natlit_def", "size": 4096, "kernel_G": 0.3533, "kernel_s": -0.04, "elab_G": 17.9288, "elab_s": 0.83, "peak_GB": 0.166, "peak_nokernel_GB": 0.16, "src_bytes": 760568}
+{"exp": "data", "variant": "natlit_nc", "size": 4096, "kernel_G": 0.3705, "kernel_s": -0.01, "elab_G": 13.3803, "elab_s": 0.52, "peak_GB": 0.126, "peak_nokernel_GB": 0.115, "src_bytes": 760581}
+{"exp": "data", "variant": "ofnat_def", "size": 16384, "kernel_G": 1.2294, "kernel_s": 0.08, "elab_G": 146.6852, "elab_s": 7.16, "peak_GB": 0.662, "peak_nokernel_GB": 0.628, "src_bytes": 2909553}
+{"exp": "data", "variant": "ofnat_nc", "size": 16384, "kernel_G": 1.5401, "kernel_s": 0.02, "elab_G": 111.4828, "elab_s": 5.15, "peak_GB": 0.504, "peak_nokernel_GB": 0.453, "src_bytes": 2909566}
+{"exp": "data", "variant": "natlit_def", "size": 16384, "kernel_G": 1.1282, "kernel_s": 0.03, "elab_G": 85.6199, "elab_s": 4.03, "peak_GB": 0.43, "peak_nokernel_GB": 0.408, "src_bytes": 3040626}
+{"exp": "data", "variant": "natlit_nc", "size": 16384, "kernel_G": 0.916, "kernel_s": 0.0, "elab_G": 54.034, "elab_s": 2.15, "peak_GB": 0.275, "peak_nokernel_GB": 0.234, "src_bytes": 3040639}
+{"exp": "data", "variant": "ofnat_def", "size": 65536, "error": "/var/folders/1y/y_ylc1qx5vzgf1vrm5tbh2kr0000gn/T/tmp1gmewtv3/Bench.lean:20786:2: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached"}
+{"exp": "data", "variant": "ofnat_nc", "size": 65536, "error": "/var/folders/1y/y_ylc1qx5vzgf1vrm5tbh2kr0000gn/T/tmp8w5eh9wv/Bench.lean:20786:2: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached"}
+{"exp": "data", "variant": "natlit_def", "size": 65536, "error": "/var/folders/1y/y_ylc1qx5vzgf1vrm5tbh2kr0000gn/T/tmp0vgyqese/Bench.lean:8:4: error: maximum recursion depth has been reached"}
+{"exp": "data", "variant": "natlit_nc", "size": 65536, "kernel_G": 6.718, "kernel_s": 0.01, "elab_G": 214.183, "elab_s": 8.8, "peak_GB": 0.872, "peak_nokernel_GB": 0.711, "src_bytes": 12160657}
+{"exp": "loop", "variant": "ofnat", "size": 1000, "kernel_G": 0.0277, "kernel_s": -0.01, "elab_G": 0.0105, "elab_s": 0.06, "peak_GB": 0.075, "peak_nokernel_GB": 0.074, "src_bytes": 315}
+{"exp": "loop", "variant": "natlit", "size": 1000, "kernel_G": 0.0339, "kernel_s": -0.01, "elab_G": 0.0077, "elab_s": 0.04, "peak_GB": 0.075, "peak_nokernel_GB": 0.074, "src_bytes": 326}
+{"exp": "loop", "variant": "ofnat", "size": 4000, "kernel_G": 0.122, "kernel_s": 0.02, "elab_G": 0.0096, "elab_s": 0.03, "peak_GB": 0.079, "peak_nokernel_GB": 0.074, "src_bytes": 316}
+{"exp": "loop", "variant": "natlit", "size": 4000, "kernel_G": 0.1232, "kernel_s": 0.0, "elab_G": 0.0071, "elab_s": 0.03, "peak_GB": 0.079, "peak_nokernel_GB": 0.074, "src_bytes": 327}
+{"exp": "loop", "variant": "ofnat", "size": 16000, "kernel_G": 0.4935, "kernel_s": 0.03, "elab_G": 0.0084, "elab_s": 0.04, "peak_GB": 0.096, "peak_nokernel_GB": 0.074, "src_bytes": 318}
+{"exp": "loop", "variant": "natlit", "size": 16000, "kernel_G": 0.4948, "kernel_s": 0.05, "elab_G": 0.0062, "elab_s": 0.02, "peak_GB": 0.096, "peak_nokernel_GB": 0.074, "src_bytes": 329}
+{"exp": "loop", "variant": "ofnat", "size": 64000, "kernel_G": 1.979, "kernel_s": 0.12, "elab_G": 0.0075, "elab_s": 0.04, "peak_GB": 0.161, "peak_nokernel_GB": 0.074, "src_bytes": 319}
+{"exp": "loop", "variant": "natlit", "size": 64000, "kernel_G": 1.9735, "kernel_s": 0.08, "elab_G": 0.0081, "elab_s": 0.07, "peak_GB": 0.161, "peak_nokernel_GB": 0.074, "src_bytes": 330}
+{"exp": "loop", "variant": "ofnat", "size": 256000, "kernel_G": 7.9201, "kernel_s": 0.58, "elab_G": 0.0087, "elab_s": 0.02, "peak_GB": 0.422, "peak_nokernel_GB": 0.074, "src_bytes": 321}
+{"exp": "loop", "variant": "natlit", "size": 256000, "kernel_G": 7.8916, "kernel_s": 0.54, "elab_G": 0.0066, "elab_s": 0.04, "peak_GB": 0.422, "peak_nokernel_GB": 0.074, "src_bytes": 332}

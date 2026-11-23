@@ -1,0 +1,1 @@
+{"eta":"(fun Nat => (KernelDef.natTestBit #0 3))","etaraw":"(fun Nat => (KernelDef.natTestBit #0 3))","name":"KernelDefTest.NatForms.bit3","raw":"(fun Nat => (KernelDef.natTestBit #0 3))","type":"(pi Nat => Bool)","value":"(fun Nat => (KernelDef.natTestBit #0 3))"}

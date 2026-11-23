@@ -1,0 +1,1 @@
+{"eta":"KernelDef.listBEqNat","etaraw":"KernelDef.listBEqNat","name":"KernelDefTest.LibraryForms.sameList","raw":"(fun (List.{0} Nat) => (fun (List.{0} Nat) => (KernelDef.listBEqNat #1 #0)))","type":"(pi (List.{0} Nat) => (pi (List.{0} Nat) => Bool))","value":"(fun (List.{0} Nat) => (fun (List.{0} Nat) => (KernelDef.listBEqNat #1 #0)))"}
