@@ -191,6 +191,9 @@ STYLES = {
     "rec_hadd": ("#008300", (0, (5, 1.5, 1, 1.5, 1, 1.5)), "P", "List.rec, ih + 1 (HAdd)"),
 }
 HOLLOW = {"lenN"}
+# the variants the plot shows: the compiler's form against the native function (the table of
+# `docs/techniques/length/README.md` has the others)
+PLOT = ("kernel_def", "length")
 
 
 def net(rows: list[dict]) -> list[dict]:
@@ -228,63 +231,66 @@ def plot(out: Path) -> None:
     fig, axs = plt.subplots(2, 2, figsize=(13, 9.6), dpi=150)
     panels = [("net_kernel_G", "Kernel instructions, net of the data", "billions"),
               ("k_instr_per_elem", "Kernel instructions per element", "thousands"),
-              ("length_ratio", "List.length's instructions ÷ the variant's", "ratio"),
+              ("length_ratio", "List.length's cost ÷ kernel_def's", "ratio"),
               ("net_peak_GB", "Peak memory above the data", "GB")]
     lo, hi = min(r["m"] for r in rows).bit_length() - 1, max(r["m"] for r in rows).bit_length()
     ticks = [2 ** k for k in range(lo + lo % 2, hi + 1, 2)]
     for ax, (key, title, ylabel) in zip(axs.flat, panels):
-        for v, (color, ls, mk, label) in STYLES.items():
+        for v in PLOT:
+            color, ls, mk, label = STYLES[v]
             pts = sorted((r["m"], r[key]) for r in nets
                          if r["variant"] == v and r.get(key, 0) > 0)
-            if pts:
+            if pts and not (key == "length_ratio" and v == "length"):
                 ax.plot(*zip(*pts), color=color, linestyle=ls, marker=mk, markersize=7,
-                        linewidth=2, label=label, markeredgewidth=1.5,
-                        markerfacecolor="white" if v in HOLLOW else color)
+                        linewidth=2, label=label, markeredgewidth=1.5, markerfacecolor=color)
         style(ax, title, "list length m", ylabel)
         ax.xaxis.set_major_locator(FixedLocator(ticks))
-    # the linear panels; the points of `lengthTR` off scale (past `2^16` on `v4.36.0-rc2`) in a note
-    tr = sorted((r for r in nets if r["variant"] == "lengthTR"), key=lambda r: r["m"])
-    killed = [(r["m"], re.search(r"killed after (\d+) s", r["error"]))
-              for r in rows if r["variant"] == "lengthTR" and "error" in r]
-    cap = 1.25 * max((r["k_instr_per_elem"] for r in nets if r["variant"] != "lengthTR"),
-                     default=1)
+    # direct labels in the first panel, List.length above its line and kernel_def below its own,
+    # at a middle size where the two lines are apart
+    ax = axs[0, 0]
+    for v, dy in (("length", 12), ("kernel_def", -20)):
+        pts = sorted((r["m"], r["net_kernel_G"]) for r in nets
+                     if r["variant"] == v and r.get("net_kernel_G", 0) > 0)
+        if pts:
+            ax.annotate(STYLES[v][3], pts[len(pts) // 2 - 1], xytext=(0, dy),
+                        textcoords="offset points", ha="center", fontsize=9, color="#3d3d3a")
     ax = axs[0, 1]
     ax.set_yscale("linear")
-    ax.set_ylim(0, cap)
-    off = [f"{r['m']:,}: {r['k_instr_per_elem']:,.0f} k" for r in tr
-           if r["k_instr_per_elem"] > cap]
-    off += [f"{m:,}: killed" + (f", kernel over {k.group(1)} s" if k else "")
-            for m, k in killed]
-    if off:
-        ax.text(0.98, 0.62, "List.lengthTR off scale\n" + "\n".join(off), ha="right", va="top",
-                transform=ax.transAxes, fontsize=8, color="#3d3d3a")
+    ax.set_ylim(0, 1.25 * max((r["k_instr_per_elem"] for r in nets if r["variant"] in PLOT),
+                              default=1))
+    # the ratio panel: List.length is the line at 1; kernel_def in instructions and in heartbeats
     ax = axs[1, 0]
     ax.set_yscale("linear")
-    ax.set_ylim(0, 1.15 * max((r["length_ratio"] for r in nets if "length_ratio" in r),
-                              default=1))
-    ax.axhline(1, color="#a8a7a0", linewidth=1)
-    end = max(((r["m"], r["length_ratio"]) for r in nets
-               if r["variant"] == "kernel_def" and "length_ratio" in r), default=None)
-    if end:
-        ax.annotate(f"kernel_def: {end[1]:.2f}×", end, xytext=(0, 12), textcoords="offset points",
-                    ha="right", fontsize=9, color="#3d3d3a")
+    ax.axhline(1, color=STYLES["length"][0], linewidth=1.5)
+    ax.annotate("List.length", (ticks[0], 1), xytext=(0, 6), textcoords="offset points",
+                fontsize=9, color="#3d3d3a")
     hb = {r["m"]: r["net_hb"] for r in nets if r["variant"] == "length" and "net_hb" in r}
-    hbr = [hb[r["m"]] / r["net_hb"] for r in nets
-           if r["variant"] == "kernel_def" and r["m"] in hb and r.get("net_hb")]
+    hbr = sorted((r["m"], hb[r["m"]] / r["net_hb"]) for r in nets
+                 if r["variant"] == "kernel_def" and r["m"] in hb and r.get("net_hb"))
     if hbr:
-        ax.text(0.98, 0.42, f"In heartbeats (the same at every run): kernel_def "
-                f"{min(hbr):.2f}–{max(hbr):.2f}× at every size", ha="right", va="top",
-                transform=ax.transAxes, fontsize=8, color="#3d3d3a")
+        ax.plot(*zip(*hbr), color=STYLES["kernel_def"][0], linestyle="--", marker="o",
+                markersize=7, linewidth=2, markeredgewidth=1.5, markerfacecolor="white",
+                label="kernel_def, in heartbeats")
+    top = max([r["length_ratio"] for r in nets if r["variant"] == "kernel_def"
+               and "length_ratio" in r] + [h for _, h in hbr], default=1)
+    ax.set_ylim(0, 1.2 * top)
+    for key, dy, text in (("instr", -16, "in instructions"), ("hb", 8, "in heartbeats")):
+        pts = hbr if key == "hb" else sorted(
+            (r["m"], r["length_ratio"]) for r in nets
+            if r["variant"] == "kernel_def" and "length_ratio" in r)
+        if pts:
+            ax.annotate(f"{text}: {pts[-1][1]:.2f}×", pts[-1], xytext=(-8, dy),
+                        textcoords="offset points", ha="right", fontsize=9, color="#3d3d3a")
     leans = sorted({r["lean"] for r in rows if "lean" in r})
     dates = sorted({r["date"] for r in rows if "date" in r})
     when = ", ".join(([f"Lean {', '.join(leans)}"] if leans else []) +
                      ([" to ".join(dict.fromkeys([dates[0], dates[-1]]))] if dates else []))
     handles, labels = axs[0, 0].get_legend_handles_labels()
-    fig.legend(handles, labels, loc="upper left", bbox_to_anchor=(0.01, 0.955), ncol=3,
+    fig.legend(handles, labels, loc="upper left", bbox_to_anchor=(0.01, 0.955), ncol=2,
                frameon=False, fontsize=9, handlelength=3.5)
-    fig.suptitle("The length of a list in the kernel" + (f" ({when})" if when else ""), x=0.01,
-                 y=0.99, ha="left", fontsize=13)
-    fig.tight_layout(rect=(0, 0, 1, 0.92))
+    fig.suptitle("kernel_def (listLength) against List.length in the kernel"
+                 + (f" ({when})" if when else ""), x=0.01, y=0.99, ha="left", fontsize=13)
+    fig.tight_layout(rect=(0, 0, 1, 0.94))
     fig.savefig(out.parent / "length.png")
 
 

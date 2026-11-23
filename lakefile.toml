@@ -25,11 +25,12 @@ scope = "leanprover-community"
 rev = "v4.37.0-rc1"
 
 # The compiler: `kernel_def`, `@[kernel_inline]`, `@[kernel_rule]`, `#kernel_audit`, and the kernel
-# forms of library functions. Globbed, so that `lake build KernelDef` also builds the optional
-# `KernelDef.MathlibForms`, which the root `KernelDef.lean` does not import.
+# forms of library functions. `KernelDef.*` is the root `KernelDef.lean` and every module under
+# it, so that `lake build KernelDef` also builds the optional `KernelDef.MathlibForms`, which the
+# root does not import. (`KernelDef.+` would leave out the root itself.)
 [[lean_lib]]
 name = "KernelDef"
-globs = ["KernelDef.+"]
+globs = ["KernelDef.*"]
 
 # The tests of the compiler: what it accepts, rejects and reports, the audit and the axioms.
 [[lean_lib]]
