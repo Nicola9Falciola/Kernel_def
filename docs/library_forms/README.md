@@ -125,7 +125,7 @@ compiler compiled the call before these forms.
 | 13 | `l.elem a`, `l.contains a`, `decide (a ∈ l)` at `ℕ` | `brecOn`, matcher, the `BEq` chain | 220.3 → 63.2 | **3.5** (generic `listElem`: 2.33) | 3.61 → 1.04 | 5,402 → 1,319 |
 | 14 | `l.reverse` | `reverseAux` (`brecOn`, accumulator) | 169.4 → 48.8 | **3.5** | 2.78 → 0.80 | 4,253 → 1,131 |
 | 15 | `a.size` (`Array`) | `List.length` of `toList` | 176.4 → 51.8 | **3.4** | 2.89 → 0.85 | 4,408 → 1,205 |
-| — | `l.length` (control; a rule since the port) | `brecOn`, `HAdd` | 174.5 → 52.1 | 3.35 (3.7 on `v4.36`, `docs/techniques/length/`) | 2.86 → 0.85 | 4,379 → 1,188 |
+| — | `l.length` (control; a rule since the port) | `brecOn`, `HAdd` | 174.5 → 52.1 | 3.35 (3.34 in `docs/techniques/length/`) | 2.86 → 0.85 | 4,379 → 1,188 |
 | 16 | `l[i]!` (`List`) | `List.get!Internal` (`brecOn`), `Inhabited` | 234.3 → 73.1 | **3.2** | 3.84 → 1.20 | 6,278 → 1,696 |
 | 17 | `l[i]?` | the `GetElem?` instance → `List.get?Internal` (`brecOn`) | 233.5 → 72.9 | **3.2** | 3.83 → 1.20 | 6,230 → 1,696 |
 | 18 | `l[i]?.getD d` | the same and `Option.getD` (matcher) | 234.3 → 73.5 | **3.2** | 3.84 → 1.21 | 6,246 → 1,696 |

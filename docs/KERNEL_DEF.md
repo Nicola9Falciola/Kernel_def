@@ -342,8 +342,9 @@ on does not change and is not carried.
 ### A library form: `List.length`
 
 `List.length` is defined by structural recursion with `HAdd`, so the kernel would unfold `brecOn`
-and the instance chain at every element (`docs/techniques/length/`: 3.7 times the cost of a bare
-recursor). `KernelDef/ListForms.lean` gives it a kernel form, and a rule:
+and the instance chain at every element (`docs/techniques/length/`: 3.3 times the cost of a bare
+recursor in instructions, 3.7 in heartbeats, on Lean `v4.37.0-rc1`). `KernelDef/ListForms.lean`
+gives it a kernel form, and a rule:
 
 ```lean
 kernel_def listLength : List α → ℕ

@@ -2,11 +2,15 @@
 # Copyright (c) 2026 Nicola Falciola. All rights reserved.
 # Released under Apache 2.0 license as described in the file LICENSE.
 # Authors: Nicola Falciola
-"""The length of a list in the kernel: core's `List.length` against our `lenN`, on synthetic files
-that import nothing (core Lean only).
+"""The length of a list in the kernel: core's `List.length` against the compiler's kernel form
+`KernelDef.listLength` and against hand-written forms.
 
-Each file holds the list `[0, 1, …, m − 1]` of raw `nat_lit`s and one `decide +kernel` check
-`Nat.beq (len rows) m = true`. The variants are the functions `len`:
+Each file imports `KernelDef` (the built modules of this repository: `lake build` first), holds the
+list `[0, 1, …, m − 1]` of raw `nat_lit`s and one `decide +kernel` check
+`Nat.beq (len rows) m = true`, under `#count_heartbeats` (Mathlib's, in the import closure of
+`KernelDef`). Every file has the same imports and the same definitions and differs only in the
+check, so the run without the kernel (`-Ddebug.skipKernelTC=true`) cancels the imports. The
+variants are the functions `len`:
 
 | variant          | definition                                                            |
 |------------------|-----------------------------------------------------------------------|
@@ -15,9 +19,20 @@ Each file holds the list `[0, 1, …, m − 1]` of raw `nat_lit`s and one `decid
 | `lengthTR`       | core's `List.lengthTR`: structural recursion on an accumulator        |
 | `struct_natadd`  | structural recursion with `Nat.add … (nat_lit 1)`                     |
 | `rec_hadd`       | a bare `List.rec` with `ih + 1` (`HAdd`, `OfNat`)                     |
-| `lenN`           | ours (ModularSymbolsTau, `Compute/Pack/Walk.lean`): a bare `List.rec` with `Nat.add ih (nat_lit 1)` |
+| `lenN`           | hand-written: a bare `List.rec` with `Nat.add ih (nat_lit 1)`         |
+| `kernel_def`     | a `kernel_def` whose source is `l.length`: by the rule `length_eq_listLength` its kernel form is `KernelDef.listLength l` |
 
 `struct_natadd` and `rec_hadd` change one of the two differences between `length` and `lenN` each.
+The sizes are `MS`, and `MS_TR` for `base` and `lengthTR` alone (the sizes past `2^16`, where
+`lengthTR` once turned superlinear). Every file runs `REPEATS` times (3 by default) in full and as many
+times without the kernel, and the minimum of each figure is kept, as in `scripts/kernel_cost.py`:
+single runs of a file with these imports spread by up to 0.5 G, as much as the kernel's work below
+16000 elements. A row holds the figures of `technique_bench.measure` (`elab_G` net of a file with
+the imports only), `hb` and `hb_skip` (the heartbeats of the check, in thousands, with and without
+the kernel: the same at every run), `repeats`, the Lean version and the date. `run` refuses an
+`OUT` that holds rows of another toolchain.
+
+The results and the plot are in `docs/techniques/length/` (`docs/techniques/length/README.md`).
 
 Usage: python3 scripts/techniques/run_length_bench.py run [OUT.jsonl]
        sage -python scripts/techniques/run_length_bench.py plot [OUT.jsonl]     (CSV and plot next to OUT)
@@ -25,21 +40,31 @@ Usage: python3 scripts/techniques/run_length_bench.py run [OUT.jsonl]
 
 from __future__ import annotations
 
+import datetime
+import os
+import re
+import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from technique_bench import (append, done, load, measure, out_and_args, style,  # noqa: E402
-                             write_csv)
+from technique_bench import append, done, load, out_and_args, style, write_csv  # noqa: E402
+from meter import SKIP, Limit, lean_env, rusage, watched  # noqa: E402
 
-MS = [1000, 4000, 16000, 64000, 128000, 256000]
+MS = [256, 1000, 4000, 16000, 64000, 128000, 256000]
+MS_TR = [72000, 80000, 88000, 96000, 112000]
+REPEATS = int(os.environ.get("REPEATS", "3"))
 VARIANTS = {"base": "nat_lit {m}", "length": "List.length rows", "lengthTR": "List.lengthTR rows",
-            "struct_natadd": "lenStruct rows", "rec_hadd": "lenRecHAdd rows", "lenN": "lenN rows"}
+            "struct_natadd": "lenStruct rows", "rec_hadd": "lenRecHAdd rows", "lenN": "lenN rows",
+            "kernel_def": "lenKernelDef rows"}
+
+PRELUDE = "import KernelDef\n"
 
 DEFS = """set_option maxRecDepth 1000000
 set_option maxHeartbeats 0
 
-/-- Ours (ModularSymbolsTau, `Compute/Pack/Walk.lean`). -/
+/-- Hand-written (ModularSymbolsTau, `Compute/Pack/Walk.lean`). -/
 noncomputable def lenN (l : List Nat) : Nat :=
   @List.rec Nat (fun _ => Nat) (nat_lit 0) (fun _ _ ih => Nat.add ih (nat_lit 1)) l
 
@@ -51,56 +76,143 @@ noncomputable def lenRecHAdd (l : List Nat) : Nat :=
 def lenStruct : List Nat → Nat
   | [] => nat_lit 0
   | _ :: t => Nat.add (lenStruct t) (nat_lit 1)
+
+/-- The compiler's: the source calls `List.length`, the kernel form `KernelDef.listLength`. -/
+kernel_def lenKernelDef (l : List Nat) : Nat := l.length
 """
 
 
 def source(m: int, variant: str) -> str:
     body = ", ".join(f"nat_lit {i}" for i in range(m))
-    return f"""/-! Length benchmark, variant `{variant}`, {m} elements. Generated by
+    return f"""{PRELUDE}
+/-! Length benchmark, variant `{variant}`, {m} elements. Generated by
 `scripts/techniques/run_length_bench.py`. -/
 {DEFS}
 noncomputable def rows : List Nat := [{body}]
 
+set_option maxHeartbeats 1000000000 in
+#count_heartbeats in
 theorem check : Nat.beq ({VARIANTS[variant].format(m=m)}) (nat_lit {m}) = true := by
   decide +kernel
 """
 
 
+HB = re.compile(r"^(?:\S+:\d+:\d+: info: )?Used (\d+) heartbeats, which is less than the current "
+                r"maximum of \d+\.\n?", re.M)
+
+
+def lean_run(src: str, opts: list[str] = ()) -> dict:
+    """One run of `lean` on `src`: `rusage`, and `hb`, the count of its `#count_heartbeats` (none
+    in a file without one). Any other output, or a failure, raises `RuntimeError`."""
+    lean, env = lean_env()
+    with tempfile.TemporaryDirectory() as tmp:
+        f = Path(tmp) / "Bench.lean"
+        f.write_text(src)
+        try:
+            rc, out, err = watched(["/usr/bin/time", "-l", lean, *opts, str(f)], env)
+        except Limit as e:
+            raise RuntimeError(f"{f}: {e}") from e
+    hb = [int(x) for x in HB.findall(out)]
+    if rc != 0 or HB.sub("", out).strip() or len(hb) > 1:
+        raise RuntimeError(f"{f}: lean failed ({rc}):\n{out[:3000]}\n{err[-3000:]}")
+    return rusage(err) | {"hb": hb[0] if hb else None}
+
+
+_BASE: dict | None = None
+
+
+def lean_min(src: str, opts: list[str], repeats: int) -> dict:
+    """The minimum of each figure of `repeats` runs of `lean_run`."""
+    runs = [lean_run(src, opts) for _ in range(repeats)]
+    if len({r["hb"] for r in runs}) > 1:
+        raise RuntimeError(f"heartbeats differ from run to run: {[r['hb'] for r in runs]}")
+    return {k: min(r[k] for r in runs) if k != "hb" else runs[0]["hb"] for k in runs[0]}
+
+
+def measure(src: str, repeats: int = 1) -> dict:
+    """`technique_bench.measure` with the heartbeats of the check, the minima of `repeats` runs,
+    and `elab_G` net of a file with the imports only."""
+    global _BASE
+    if _BASE is None:
+        _BASE = lean_min(f"{PRELUDE}\n/-! Baseline: the imports only. -/\n", SKIP, REPEATS)
+    skip = lean_min(src, SKIP, repeats)
+    try:
+        full = lean_min(src, [], repeats)
+    except RuntimeError as e:
+        raise RuntimeError(f"kernel: {e} (without the kernel: {skip['instr']:.1f} G, "
+                           f"{skip['real']:.1f} s)") from e
+    return {"kernel_G": round(full["instr"] - skip["instr"], 4),
+            "kernel_s": round(full["real"] - skip["real"], 3),
+            "elab_G": round(skip["instr"] - _BASE["instr"], 4),
+            "elab_s": round(skip["real"] - _BASE["real"], 3),
+            "peak_GB": round(full["peak"], 3), "peak_nokernel_GB": round(skip["peak"], 3),
+            "hb": full["hb"], "hb_skip": skip["hb"], "repeats": repeats,
+            "src_bytes": len(src.encode())}
+
+
+def lean_version() -> str:
+    lean, env = lean_env()
+    out = subprocess.run([lean, "--version"], capture_output=True, text=True, env=env).stdout
+    m = re.search(r"version ([^,\s]+)", out)
+    return f"v{m.group(1)}" if m else out.strip()
+
+
 def run(out: Path) -> None:
+    lean = lean_version()
+    if out.exists():
+        other = {r.get("lean", "unrecorded") for r in load(out)} - {lean}
+        if other:
+            raise SystemExit(f"{out} holds rows of another toolchain ({', '.join(sorted(other))}),"
+                             f" not {lean}: give a new OUT.jsonl")
     have = done(out, "variant", "m")
-    for m in MS:
+    for m in sorted(set(MS) | set(MS_TR)):
         for v in VARIANTS:
-            if (v, m) in have:
+            if (v, m) in have or (m not in MS and v not in ("base", "lengthTR")):
                 continue
             row = {"variant": v, "m": m}
             try:
-                row |= measure(source(m, v))
+                row |= measure(source(m, v), REPEATS)
             except RuntimeError as e:
                 msg = str(e)
                 row["error"] = (msg.splitlines()[0] if msg.startswith("kernel:") else
                                 next((ln for ln in msg.splitlines() if "error" in ln), msg))[:300]
-            append(out, row)
+            append(out, row | {"lean": lean, "date": datetime.date.today().isoformat()})
 
 
-COLORS = {"length": "#e34948", "lengthTR": "#eb6834", "struct_natadd": "#eda100",
-          "rec_hadd": "#1baf7a", "lenN": "#2a78d6"}
-MARKERS = {"length": "o", "lengthTR": "s", "struct_natadd": "^", "rec_hadd": "v", "lenN": "D"}
-LABELS = {"length": "List.length (core)", "lengthTR": "List.lengthTR (core)",
-          "struct_natadd": "structural recursion, Nat.add", "rec_hadd": "List.rec, ih + 1 (HAdd)",
-          "lenN": "lenN: List.rec, Nat.add (ours)"}
+# Fixed categorical order, the two compared first; line style and marker as well, for print in
+# black and white. `lenN` has hollow markers: the compiler's form is the same term and its line
+# lies on it.
+STYLES = {
+    "kernel_def": ("#2a78d6", "-", "o", "kernel_def (listLength)"),
+    "length": ("#eb6834", "-", "s", "List.length"),
+    "lenN": ("#1baf7a", "--", "D", "lenN: List.rec, Nat.add (hand-written)"),
+    "lengthTR": ("#eda100", ":", "^", "List.lengthTR"),
+    "struct_natadd": ("#e87ba4", "-.", "v", "structural recursion, Nat.add"),
+    "rec_hadd": ("#008300", (0, (5, 1.5, 1, 1.5, 1, 1.5)), "P", "List.rec, ih + 1 (HAdd)"),
+}
+HOLLOW = {"lenN"}
 
 
 def net(rows: list[dict]) -> list[dict]:
-    """The kernel cost of each variant minus that of `base` at the same `m` (the data)."""
+    """The kernel cost of each variant minus that of `base` at the same `m` (the data), and the
+    ratio of `List.length`'s to it."""
     base = {r["m"]: r for r in rows if r["variant"] == "base" and "error" not in r}
     out = []
     for r in rows:
         if r["variant"] != "base" and "error" not in r and r["m"] in base:
             b = base[r["m"]]
-            out.append(r | {"net_kernel_G": round(r["kernel_G"] - b["kernel_G"], 4),
-                            "net_kernel_s": round(r["kernel_s"] - b["kernel_s"], 3),
-                            "k_instr_per_elem": round((r["kernel_G"] - b["kernel_G"]) * 1e6
-                                                      / r["m"], 1)})
+            g = r["kernel_G"] - b["kernel_G"]
+            row = r | {"net_kernel_G": round(g, 4),
+                       "net_kernel_s": round(r["kernel_s"] - b["kernel_s"], 3),
+                       "k_instr_per_elem": round(g * 1e6 / r["m"], 1),
+                       "net_peak_GB": round(r["peak_GB"] - b["peak_GB"], 3)}
+            if r.get("hb") is not None and b.get("hb") is not None:
+                row["net_hb"] = r["hb"] - b["hb"]
+            out.append(row)
+    length = {r["m"]: r["net_kernel_G"] for r in out if r["variant"] == "length"}
+    for r in out:
+        if r["m"] in length and r["net_kernel_G"] > 0:
+            r["length_ratio"] = round(length[r["m"]] / r["net_kernel_G"], 3)
     return out
 
 
@@ -108,35 +220,71 @@ def plot(out: Path) -> None:
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
+    from matplotlib.ticker import FixedLocator
 
     rows = load(out)
     nets = net(rows)
     write_csv(rows, out.parent / "results.csv")
-    fig, axs = plt.subplots(1, 3, figsize=(16, 4.8), dpi=150)
+    fig, axs = plt.subplots(2, 2, figsize=(13, 9.6), dpi=150)
     panels = [("net_kernel_G", "Kernel instructions, net of the data", "billions"),
-              ("k_instr_per_elem", "Per element", "thousand instructions"),
-              ("peak_GB", "Peak memory", "GB")]
-    for ax, (key, title, ylabel) in zip(axs, panels):
-        for v in COLORS:
-            pts = sorted((r["m"], r[key]) for r in nets if r["variant"] == v and r[key] > 0)
+              ("k_instr_per_elem", "Kernel instructions per element", "thousands"),
+              ("length_ratio", "List.length's instructions ÷ the variant's", "ratio"),
+              ("net_peak_GB", "Peak memory above the data", "GB")]
+    lo, hi = min(r["m"] for r in rows).bit_length() - 1, max(r["m"] for r in rows).bit_length()
+    ticks = [2 ** k for k in range(lo + lo % 2, hi + 1, 2)]
+    for ax, (key, title, ylabel) in zip(axs.flat, panels):
+        for v, (color, ls, mk, label) in STYLES.items():
+            pts = sorted((r["m"], r[key]) for r in nets
+                         if r["variant"] == v and r.get(key, 0) > 0)
             if pts:
-                ax.plot(*zip(*pts), color=COLORS[v], marker=MARKERS[v], markersize=6, linewidth=2,
-                        label=LABELS[v])
+                ax.plot(*zip(*pts), color=color, linestyle=ls, marker=mk, markersize=7,
+                        linewidth=2, label=label, markeredgewidth=1.5,
+                        markerfacecolor="white" if v in HOLLOW else color)
         style(ax, title, "list length m", ylabel)
-    axs[1].set_yscale("linear")
-    axs[1].set_ylim(0, 260)
-    off = [f"{r['m']:,}: {r['k_instr_per_elem']:,.0f} k"
-           for r in sorted(nets, key=lambda r: r["m"])
-           if r["variant"] == "lengthTR" and r["k_instr_per_elem"] > 260]
-    off += [f"{r['m']:,}: killed, kernel over 600 s" for r in rows
-            if r["variant"] == "lengthTR" and "error" in r]
+        ax.xaxis.set_major_locator(FixedLocator(ticks))
+    # the linear panels; the points of `lengthTR` off scale (past `2^16` on `v4.36.0-rc2`) in a note
+    tr = sorted((r for r in nets if r["variant"] == "lengthTR"), key=lambda r: r["m"])
+    killed = [(r["m"], re.search(r"killed after (\d+) s", r["error"]))
+              for r in rows if r["variant"] == "lengthTR" and "error" in r]
+    cap = 1.25 * max((r["k_instr_per_elem"] for r in nets if r["variant"] != "lengthTR"),
+                     default=1)
+    ax = axs[0, 1]
+    ax.set_yscale("linear")
+    ax.set_ylim(0, cap)
+    off = [f"{r['m']:,}: {r['k_instr_per_elem']:,.0f} k" for r in tr
+           if r["k_instr_per_elem"] > cap]
+    off += [f"{m:,}: killed" + (f", kernel over {k.group(1)} s" if k else "")
+            for m, k in killed]
     if off:
-        axs[1].text(0.97, 0.6, "List.lengthTR off scale\n" + "\n".join(off), ha="right",
-                    transform=axs[1].transAxes, va="top", fontsize=8, color="#3d3d3a")
-    axs[0].legend(frameon=False, fontsize=8)
-    fig.suptitle("The length of a list in the kernel: List.length against lenN", x=0.01,
-                 ha="left")
-    fig.tight_layout()
+        ax.text(0.98, 0.62, "List.lengthTR off scale\n" + "\n".join(off), ha="right", va="top",
+                transform=ax.transAxes, fontsize=8, color="#3d3d3a")
+    ax = axs[1, 0]
+    ax.set_yscale("linear")
+    ax.set_ylim(0, 1.15 * max((r["length_ratio"] for r in nets if "length_ratio" in r),
+                              default=1))
+    ax.axhline(1, color="#a8a7a0", linewidth=1)
+    end = max(((r["m"], r["length_ratio"]) for r in nets
+               if r["variant"] == "kernel_def" and "length_ratio" in r), default=None)
+    if end:
+        ax.annotate(f"kernel_def: {end[1]:.2f}×", end, xytext=(0, 12), textcoords="offset points",
+                    ha="right", fontsize=9, color="#3d3d3a")
+    hb = {r["m"]: r["net_hb"] for r in nets if r["variant"] == "length" and "net_hb" in r}
+    hbr = [hb[r["m"]] / r["net_hb"] for r in nets
+           if r["variant"] == "kernel_def" and r["m"] in hb and r.get("net_hb")]
+    if hbr:
+        ax.text(0.98, 0.42, f"In heartbeats (the same at every run): kernel_def "
+                f"{min(hbr):.2f}–{max(hbr):.2f}× at every size", ha="right", va="top",
+                transform=ax.transAxes, fontsize=8, color="#3d3d3a")
+    leans = sorted({r["lean"] for r in rows if "lean" in r})
+    dates = sorted({r["date"] for r in rows if "date" in r})
+    when = ", ".join(([f"Lean {', '.join(leans)}"] if leans else []) +
+                     ([" to ".join(dict.fromkeys([dates[0], dates[-1]]))] if dates else []))
+    handles, labels = axs[0, 0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="upper left", bbox_to_anchor=(0.01, 0.955), ncol=3,
+               frameon=False, fontsize=9, handlelength=3.5)
+    fig.suptitle("The length of a list in the kernel" + (f" ({when})" if when else ""), x=0.01,
+                 y=0.99, ha="left", fontsize=13)
+    fig.tight_layout(rect=(0, 0, 1, 0.92))
     fig.savefig(out.parent / "length.png")
 
 
